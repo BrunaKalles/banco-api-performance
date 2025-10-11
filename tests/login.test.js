@@ -1,9 +1,10 @@
 import http from 'k6/http';
 import { sleep, check } from 'k6';
+const postLogin = JSON.parse(open('../fixtures/postLogin.json'));
 
 
 export const options = {
-    //iterations: 1,
+   // iterations: 1,
    // vus: 10,
   //  duration: '30s',
     stages: [
@@ -21,11 +22,6 @@ export const options = {
 
 export default function () {
     const url = 'http://localhost:3000/login';
-
-    const payload = JSON.stringify({//com essa função o objeto js vai ser transformado em JSON
-        username: 'julio.lima',
-        senha: '123456',
-    });
 
     const params = {
         headers: {
